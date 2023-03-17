@@ -124,6 +124,7 @@ body{
     margin-bottom: 280px;
     max-height: 50%;
 }
+/*button to actually log you into the site */
 .LOGIN_BTN_final{
     position: relative;
     background-color:#467A88;

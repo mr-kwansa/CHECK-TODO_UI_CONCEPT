@@ -1,6 +1,6 @@
 //function to show the login form when the button is cliked 
 function show_login_form(){
-    var show_login=document.getElementById("user_logins")
+    var show_login=document.getElementById("loginForm")
     var button_1=document.getElementById("CREATE");
     var button_2=document.getElementById("LOGIN_BTN");
     //is statment to check is the form is being displayed or not if it is its hides it if not it displayes it 

@@ -40,16 +40,16 @@
         </div>
 
         <!-- The login aspect -->
-        <form class="user_logins" id="user_logins" hidden>
+        <form class="user_logins" id="loginForm" hidden>
             <H1 class="head_inner_LOGIN">WELCOME BACK</H1>
             <h2 class="head_LOGIN">TO CHECK-TODO</h2>
             <h2 class="frorm_header_LOGIN" >LOGIN</h2>
             <h3>Email</h3>
-         <input type="email" placeholder="name@gmail.com" class="input" id="loginEmail">
+         <input type="email" placeholder="name@gmail.com" class="input" id="loginEmail" required>
          <br>
          <br>
          <h3>Password</h3>
-         <input type="password" placeholder="**********" class="input" id="loginPassword">
+         <input type="password" placeholder="**********" class="input" id="loginPassword" minlength="6" required>
          <br>
          <br>
          <input type="submit" id="loginBtn" value="LOGIN">

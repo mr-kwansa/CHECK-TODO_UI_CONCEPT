@@ -6,39 +6,32 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/97b584e9f9.js" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script src="Scripts/index.js"></script>
 </head>
 <body>
     
     <div class="container">
-        <img src="casual-life-3d-girl-with-tablet-and-working-process-on-desktop.png" class="side_image">    
+        <img src="images/casual-life-3d-girl-with-tablet-and-working-process-on-desktop.png" class="side_image">    
         <div class="login_form">
             <form class="user_details" id="user_details" hidden>
                 <H1 class="head_inner">WELCOME</H1>
                 <h2 class="head">TO CHECK-TODO</h2>
                 <h2 class="frorm_header">Register</h2>
 
-            <!-- The sign in part -->
-             <h3>First Name</h3>
-             <input type="text" placeholder="First Name" class="input">
+            <!-- The signup part -->
+             <h3>Full Name</h3>
+             <input type="text" placeholder="eg: David Stones" id="fullname" class="input" required>
              <br>
-             
-             <h3>Last Name</h3>
-             <input type="text" placeholder="Last Name" class="input">
-             <br>
-             
+          
              <h3>Email</h3>
-             <input type="email" placeholder="name@gmail.com" class="input">
+             <input type="email" placeholder="name@gmail.com" class="input" id="signupEmail" required>
              <br>
              
              <h3>Password</h3>
-             <input type="password" placeholder="**********" class="input">
+             <input type="password" placeholder="**********" class="input" id="signupPassword" minlength="6" required>
              <br>
              
-             <h3>Confirm Password</h3>
-             <input type="password" placeholder="***********" class="input">
-             <br>
-             
+             <input type="submit" id="signupBtn">
              <h5 class="login_statment">Already have an Account...? Login <i class="fa fa-arrow-down" aria-hidden="true"></i> </h5>
              
             </form>
@@ -59,93 +52,32 @@
          <input type="password" placeholder="**********" class="input" id="loginPassword">
          <br>
          <br>
-         <button class="LOGIN_BTN_final" id="loginBtn">LOGIN</button>
+         <input type="submit" id="loginBtn" value="LOGIN">
         </form>     
 
     </div>
 </body>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-   import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js"
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyC3JoaZZHH4e-ExdqXhsApF0xphJWbSclQ",
-      authDomain: "group-project-1a0cd.firebaseapp.com",
-      projectId: "group-project-1a0cd",
-      storageBucket: "group-project-1a0cd.appspot.com",
-      messagingSenderId: "673791177728",
-      appId: "1:673791177728:web:5ff8bbee1def47ba9294e5"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script>
 
-    const auth = getAuth(app);
-    console.log(app);
+  const firebaseConfig = {
+    apiKey: "AIzaSyCS8Goa_OXK2fl3mykZr_EeDSeEOOil1X8",
+    authDomain: "group-todo-aafed.firebaseapp.com",
+    databaseURL: "https://group-todo-aafed-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "group-todo-aafed",
+    storageBucket: "group-todo-aafed.appspot.com",
+    messagingSenderId: "449574472630",
+    appId: "1:449574472630:web:6c2e027a02a6a023ce4f17"
+  };
 
-    
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-    //----- New Registration code start	  
-    // document.getElementById("register").addEventListener("click", function() {
-    //     var email =  document.getElementById("email").value;
-    //     var password = document.getElementById("password").value;
-    //     //For new registration
-    //     createUserWithEmailAndPassword(auth, email, password)
-    //     .then((userCredential) => {
-    //       // Signed in 
-    //       const user = userCredential.user;
-    //       console.log(user);
-    //       alert("Registration successfully!!");
-    //       // ...
-    //     })
-    //     .catch((error) => {
-    //       const errorCode = error.code;
-    //       const errorMessage = error.message;
-    //       // ..
-    //       console.log(errorMessage);
-    //       alert(error);
-    //     });		  		  
-    // });
-    //----- End
-
-    //----- Login code start	  
-    document.getElementById("loginBtn").addEventListener("click", function() {
-        var email =  document.getElementById("loginEmail").value;
-        var password = document.getElementById("loginPassword").value;
-
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in 
-          const user = userCredential.user;
-          console.log(user);
-          alert(user.email+" Login successfully!!!");
-          document.getElementById('logout').style.display = 'block';
-          // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorMessage);
-          alert(errorMessage);
-        });		  		  
-    });
-    //----- End
-
-    //----- Logout code start	  
-    // document.getElementById("logout").addEventListener("click", function() {
-    //     signOut(auth).then(() => {
-    //         // Sign-out successful.
-    //         console.log('Sign-out successful.');
-    //         alert('Sign-out successful.');
-    //         document.getElementById('logout').style.display = 'none';
-    //       }).catch((error) => {
-    //         // An error happened.
-    //         console.log('An error happened.');
-    //       });		  		  
-    // });
-    //----- End
-
-  </script>
+  //make auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+<script src="Scripts/auth.js"></script>
 </html>

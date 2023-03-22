@@ -43,7 +43,6 @@ loginForm.addEventListener('submit', (e) => {
 auth.signInWithEmailAndPassword(email, password).then(credential =>{
   console.log(credential.user);
   loginForm.reset();
-  alert('Login successful');
 })
 .catch(function(error) {
   // Handle Errors here.

@@ -6,28 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-<script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+    
+        const firebaseConfig = {
+        apiKey: "AIzaSyCS8Goa_OXK2fl3mykZr_EeDSeEOOil1X8",
+        authDomain: "group-todo-aafed.firebaseapp.com",
+        databaseURL: "https://group-todo-aafed-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "group-todo-aafed",
+        storageBucket: "group-todo-aafed.appspot.com",
+        messagingSenderId: "449574472630",
+        appId: "1:449574472630:web:6c2e027a02a6a023ce4f17"
+        };
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCS8Goa_OXK2fl3mykZr_EeDSeEOOil1X8",
-    authDomain: "group-todo-aafed.firebaseapp.com",
-    databaseURL: "https://group-todo-aafed-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "group-todo-aafed",
-    storageBucket: "group-todo-aafed.appspot.com",
-    messagingSenderId: "449574472630",
-    appId: "1:449574472630:web:6c2e027a02a6a023ce4f17"
-  };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  //make auth and firestore references
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-</script>
+        //make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
     <script src="Scripts/main.js"></script>
+    <script src="Scripts/mainLayout.js"></script>
     <!-- <style>
         #logout{
             background-color: red;
@@ -38,6 +39,12 @@
 </head>
 <body>
     <h1>Welcome to this page</h1>
+    <h3>Tasks</h3>
+    <div class="container">
+        <ul class="tasks" style="list-style-type: none;">
+            
+        </ul>
+    </div>
     <button id="logout" onclick="logout(event)">Log out</button>
 </body>
 

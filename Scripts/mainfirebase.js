@@ -1,7 +1,9 @@
 //Tracks the authenticaiton state
+var userId = '';
 auth.onAuthStateChanged(user => {
   if (user) {
-    console.log(user);
+    userId = user.uid;
+    console.log(user.uid);
     document.querySelector('#userEmail').innerHTML  = 'Logged in as ' + user.email
   }
   else {
@@ -9,11 +11,13 @@ auth.onAuthStateChanged(user => {
   }
 });
 
+console.log(userId);
 //Logout
 function logout(e) {
   e.preventDefault();
   auth.signOut();
 }
+
 
 //get items from the firestore database
 db.collection('todo-items').onSnapshot(snapshot => {
@@ -23,15 +27,13 @@ db.collection('todo-items').onSnapshot(snapshot => {
 //adds a task to the firestore database
 function addItem(e) {
   e.preventDefault();
-
   const taskText = document.querySelector('.addTask');
+
   db.collection('todo-items').add({
-    text: taskText['add_task_field'].value,
-    status: 'active'
-  }).then(() => {
-    taskText.reset();
-  }).catch(error => {
-    alert(error.message);
-  });
+        text: taskText['add_task_field'].value,
+        status: 'active'
+      }).then(() => {
+        taskText.reset();
+      })
 }
 

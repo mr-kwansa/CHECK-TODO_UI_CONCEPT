@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Check Todo</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -27,7 +27,7 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
     </script>
-    <script src="Scripts/main.js"></script>
+    <script src="Scripts/mainfirebase.js"></script>
     <script src="Scripts/mainLayout.js"></script>
     <!-- <style>
         #logout{
@@ -39,11 +39,18 @@
 </head>
 <body>
     <h1>Welcome to this page</h1>
+    <h5 id="userEmail"></h5>
     <h3>Tasks</h3>
     <div class="container">
         <ul class="tasks" style="list-style-type: none;">
             
         </ul>
+    </div>
+    <div>
+        <form class="addTask" onsubmit="addItem(event)">
+            <input type="text" id='add_task_field' placeholder='Add a task here...' required>
+            <input type="submit" class='addTaskBtn' value="Add">
+        </form>
     </div>
     <button id="logout" onclick="logout(event)">Log out</button>
 </body>

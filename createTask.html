@@ -6,6 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+</head>
+<body class="create-task-body">
+    <aside>
+        <iframe src="sidebar.html" frameborder="none" style="border:none;"></iframe>
+    </aside>
+    <section class="create-task-section">
+        <h4 class="input-labels">CREATE TASK</h4>
+        <form action="" method="post" class="create-task-form">
+            <input type="text" name="taskName" id="taskId" class="formInputs" placeholder="Task Name">
+            <label for="category" class="input-labels">Category</label>
+            <select name="category" id="category" class="formInputs">
+                <option value="None">None</option>
+                <option value="Academic">Academic</option>
+                <option value="Social">Social</option>
+                <option value="Religious">Religious</option>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+            </select>
+
+            <label for="endDate" class="input-labels">End Date</label>
+            <input type="date" name="end_date" id="endDate" class="formInputs">
+
+            <button type="submit" class="create-task-button">Create Task</button>
+        </form>
+    </section>
+
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -28,28 +54,5 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
     </script>
-    <script src="Scripts/main.js"></script>
-    <script src="Scripts/mainLayout.js"></script>
-    <!-- <style>
-        #logout{
-            background-color: red;
-            color: white;
-            display: inline; padding: 10px; 
-        }
-    </style> -->
-</head>
-<body class="dashboard-body">
-    <aside>
-        <iframe src="sidebar.html" frameborder="none" style="border:none;"></iframe>
-    </aside>
-    
-    
-    <!-- <button id="logout" onclick="logout(event)">Log out</button> -->
-
-
-    <!-- <section >
-
-    </section> -->
 </body>
-
 </html>

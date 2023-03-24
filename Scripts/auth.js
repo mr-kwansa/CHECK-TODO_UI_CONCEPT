@@ -38,6 +38,7 @@ loginForm.addEventListener('submit', (e) => {
   const password = loginForm['loginPassword'].value;
 
   //login the user
+  const thatEmail = '';
   auth.signInWithEmailAndPassword(email, password).then(credential => {
     console.log(credential.user);
     loginForm.reset();

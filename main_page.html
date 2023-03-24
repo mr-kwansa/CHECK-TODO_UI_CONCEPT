@@ -49,6 +49,13 @@
     <div>
         <form class="addTask" onsubmit="addItem(event)">
             <input type="text" id='add_task_field' placeholder='Add a task here...' required>
+            <select id="categorySelect" >
+                <option value="Academic">Academic</option>
+                <option value="Religious">Religious</option>
+                <option value="Work">Work</option>
+                <option value="Home">Home</option>
+                <option value="Activity">Activity</option>
+            </select>
             <input type="submit" class='addTaskBtn' value="Add">
         </form>
     </div>

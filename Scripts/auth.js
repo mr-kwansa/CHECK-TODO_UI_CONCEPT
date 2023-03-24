@@ -17,16 +17,11 @@ signupForm.addEventListener('submit', (e) => {
 
   //signup a new user
   auth.createUserWithEmailAndPassword(email, password).then(Credential => {
-    return db.collection('users').doc(Credential.user.uid).set({
-      name : fullname
-    });
-  }).then(() => {
     signupForm.reset();
     window.location.href = "./main_page.html";
   })
     .catch(function (error) {
       // Handle Errors here.
-      var errorCode = error.code;
       var errorMessage = error.message;
       alert(errorMessage);
       console.log(error);
@@ -43,6 +38,7 @@ loginForm.addEventListener('submit', (e) => {
   const password = loginForm['loginPassword'].value;
 
   //login the user
+  const thatEmail = '';
   auth.signInWithEmailAndPassword(email, password).then(credential => {
     console.log(credential.user);
     loginForm.reset();
